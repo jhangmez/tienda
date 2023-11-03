@@ -23,7 +23,7 @@
       "@Buttons/*": ["./src/components/Buttons/*"],
       "@public/*": ["./public/*"],
       "@routes": ["./src/routes/index.tsx"],
-      "@utils/*": ["./src/utils/*"],
+      "@typescustom/*": ["./src/types/*"],
       "@lib/*": ["./lib/*"]
     }
   },

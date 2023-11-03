@@ -5,6 +5,7 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Experiencia from '@components/Experiencia'
 import Perfil from '@components/Perfil'
+import Producto from '@components/Producto'
 
 export default function Home() {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
 
       <div className='bg-light-surface dark:bg-dark-surface'>
         <Perfil />
+      </div>
+      <div className='bg-light-surface dark:bg-dark-surface'>
+        <Producto />
       </div>
 
       <div className='bg-light-surface dark:bg-dark-surface'>
