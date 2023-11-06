@@ -24,7 +24,8 @@
       "@public/*": ["./public/*"],
       "@routes": ["./src/routes/index.tsx"],
       "@typescustom/*": ["./src/types/*"],
-      "@lib/*": ["./lib/*"]
+      "@lib/*": ["./lib/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -3,7 +3,7 @@
 import React from 'react'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import Producto from '@components/Producto'
+import ListarProductos from '@components/ListarProducto'
 
 export default function Home() {
   return (
@@ -12,7 +12,9 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className='bg-light-surface dark:bg-dark-surface h-screen'></div>
+      <div className='bg-light-surface dark:bg-dark-surface'>
+        <ListarProductos />
+      </div>
 
       <div className='bg-light-surface dark:bg-dark-surface'>
         <Footer />

@@ -1,8 +1,7 @@
 'use client'
 
 import Swiper from '@components/Swiper'
-import Carousel from '@components/Carousel'
-import productsData from './products.json'
+import productsData from '@utils/products.json'
 import { notFound } from 'next/navigation'
 
 export default function Producto({ slug }: { slug: string }) {
