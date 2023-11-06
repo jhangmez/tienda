@@ -5,7 +5,7 @@ import SwiperItem from './SwiperItem'
 import { getRefValue, useStateRef } from '@lib/hooks'
 import { getTouchEventData } from '@lib/dom'
 
-import './Swiper.css'
+// import './Swiper.css'
 
 // exported so we can use later in tests
 export type Props = {
@@ -119,26 +119,28 @@ function Swiper({ items }: Props) {
 
   return (
     <div
-      className='swiper-container'
+      className='w-1/2 max-w-fit  overflow-auto overflow-hidden touch:pan-y'
       onTouchStart={onTouchStart}
       onMouseDown={onTouchStart}
     >
       <ul
         ref={containerRef}
-        className={`swiper-list ${isSwiping ? 'is-swiping' : ''}`}
+        className={` flex flex-row list-none p-0 m-0 transform-gpu ease-out duration-300 ${
+          isSwiping ? 'transition-none' : ''
+        }`}
         style={{ transform: `translate3d(${offsetX}px, 0, 0)` }}
       >
         {items.map((item, idx) => (
           <SwiperItem key={idx} {...item} />
         ))}
       </ul>
-      <ul className='swiper-indicator'>
+      <ul className='flex justify-center list-none m-0 p-0 mt-4'>
         {items.map((_item, idx) => (
           <li
             key={idx}
-            className={`swiper-indicator-item ${
-              currentIdx === idx ? 'active' : ''
-            }`}
+            className={` ${
+              currentIdx === idx ? 'bg-gray-700' : 'bg-gray-300'
+            } rounded-full w-3 h-3 m-1 cursor-pointer`}
             data-testid='indicator' // we'll use this later on our test
             onClick={() => indicatorOnClick(idx)}
           />

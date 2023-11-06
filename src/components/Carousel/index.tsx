@@ -24,7 +24,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         width={500}
         height={500}
       />
-      <button onClick={prevImage} className='absolute left-0 h-3'>
+      <button onClick={prevImage} className='absolute left- 0h-3'>
         &lt;
       </button>
       <button onClick={nextImage} className='absolute right-0 h-3'>

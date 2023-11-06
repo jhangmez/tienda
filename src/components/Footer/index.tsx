@@ -92,11 +92,18 @@ export default function FooterWithSocialMediaIcons() {
         <div className='sm:flex sm:items-center sm:justify-between'>
           <span className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>
             © 2023{'  '}
-            <Link href='/' className='hover:underline'>
-              <span className='text-black text-light-onSurface dark:text-dark-onSurface font-bold leading-[44px]'>
-                jhan
-                <span className='text-light-primary dark:text-dark-primary font-bold leading-[44px]'>
-                  gmez
+            <Link
+              href={VercelHarkaysoft}
+              className='hover:underline'
+              target='_blank'
+            >
+              <span
+                className={`${myFont.className} self-center text-1xl whitespace-nowrap pb-3`}
+              >
+                Harkay
+                <span className={`${myFont.className} text-2xl text-[0.8em]`}>
+                  {' '}
+                  S O F T
                 </span>
               </span>
             </Link>
