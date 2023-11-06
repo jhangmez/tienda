@@ -119,7 +119,7 @@ function Swiper({ items }: Props) {
 
   return (
     <div
-      className='w-1/2 max-w-fit  overflow-auto overflow-hidden touch:pan-y'
+      className='lg:w-1/2 sm:w-fit lg:max-w-fit  overflow-auto overflow-hidden touch:pan-y'
       onTouchStart={onTouchStart}
       onMouseDown={onTouchStart}
     >
