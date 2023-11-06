@@ -19,17 +19,17 @@ export default function FooterWithSocialMediaIcons() {
               className='w-[230px] h-14 justify-start items-center gap-[5px] inline-flex'
             >
               <Icon
-                icon='material-symbols:sentiment-excited-outline'
+                icon='material-symbols:store'
                 width='28'
                 height='28'
                 className='text-light-onSurface dark:text-dark-onSurface'
               />
               <div>
                 <span className='text-light-onSurface dark:text-dark-onSurface text-2xl font-bold leading-[44px]'>
-                  jhan
+                  ronal
                 </span>
                 <span className='text-light-primary dark:text-dark-primary text-2xl font-bold leading-[44px]'>
-                  gmez
+                  Tienda
                 </span>
               </div>
             </Link>

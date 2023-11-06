@@ -36,20 +36,52 @@ export default function Producto({ slug }: { slug: string }) {
   }
 
   return (
-    <div className='container mx-auto lg:px-16'>
-      <div className='flex h-full flex-col lg:flex-row justify-center px-6 lg:px-0  gap-5'>
+    <div className='container mx-auto lg:px-16 '>
+      <div className='px-2 h-auto text-2xl text-light-primary dark:text-dark-primary font-bold mb-5 px-6 lg:px-0'>
+        {producto?.nombre}
+      </div>
+      <div className='flex h-full flex-col lg:flex-row justify-center px-6 lg:px-0 gap-10'>
         <Swiper items={items} />
         <div className='text-light-onSurface dark:text-dark-onSurface'>
           <div>Id del producto: {producto?.id}</div>
 
-          <h1>{producto?.nombre}</h1>
-          <p>Fabricante: {producto?.fabricante}</p>
-          <p>Stock: {producto?.stock}</p>
-          <p>Precio en dólares: {producto?.preciodolares}</p>
-          <p>Precio en soles: {producto?.preciosoles}</p>
-          <p>Descripción: {producto?.descripcion}</p>
-          <p>Descuento: {producto?.descuento}</p>
+          <div>
+            Fabricante:
+            <p className='text-light-primary dark:text-dark-primary font-bold'>
+              {producto?.fabricante}
+            </p>
+          </div>
+
+          <div>
+            Stock:
+            <p className='text-light-primary dark:text-dark-primary font-bold'>
+              {producto?.stock}
+            </p>
+          </div>
+          <div>
+            Precio en dólares:{' '}
+            <p className='text-light-primary dark:text-dark-primary font-bold'>
+              $ {producto?.preciodolares}
+            </p>
+          </div>
+          <div>
+            Precio en soles:{' '}
+            <p className='text-light-primary dark:text-dark-primary font-bold'>
+              S/ {producto?.preciosoles}
+            </p>
+          </div>
+          <div>
+            <p className='text-light-primary dark:text-dark-primary font-bold'>
+              {producto?.descuento ? 'Con descuento' : ''}
+            </p>
+          </div>
         </div>
+      </div>
+      <div className='text-2xl text-light-primary dark:text-dark-primary font-bold'>
+        Descripcion
+      </div>
+      <div className='text-1xl text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer '>
+        {producto?.descripcion}
       </div>
     </div>
   )

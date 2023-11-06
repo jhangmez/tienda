@@ -125,7 +125,7 @@ function Swiper({ items }: Props) {
     >
       <ul
         ref={containerRef}
-        className={` flex flex-row list-none p-0 m-0 transform-gpu ease-out duration-300 ${
+        className={`flex flex-row list-none p-0 m-0 transform-gpu ease-out duration-300 ${
           isSwiping ? 'transition-none' : ''
         }`}
         style={{ transform: `translate3d(${offsetX}px, 0, 0)` }}

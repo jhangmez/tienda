@@ -28,11 +28,20 @@ export default function ListarProductos() {
                   height={300}
                 />
               </div>
-
-              <div className='self-stretch h-[auto] px-2 flex-col justify-center items-start gap-2 flex text-light-primary dark:text-dark-primary'>
-                <p>Precio en dólares: {producto?.preciodolares}</p>
-                <p>Precio en soles: {producto?.preciosoles}</p>
-                <p>Descripción: {producto?.descripcion}</p>
+              <div className='self-stretch h-[auto] px-2 flex-col justify-center items-start gap-2 flex '>
+                <p className='text-light-primary dark:text-dark-primary font-bold'>
+                  $ {producto?.preciodolares} o S/ {producto?.preciosoles}
+                </p>
+              </div>
+              <div className='self-stretch h-[auto] px-2 flex-col justify-center items-start gap-2 flex '>
+                <p className='text-light-primary dark:text-dark-primary font-bold'>
+                  {producto?.fabricante}
+                </p>
+              </div>
+              <div className='self-stretch h-[auto] px-2 flex-col justify-center items-start gap-2 flex '>
+                <p className='text-light-primary dark:text-dark-primary'>
+                  {producto?.descripcion}
+                </p>
               </div>
             </Link>
           ))}

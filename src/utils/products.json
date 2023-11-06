@@ -9,11 +9,11 @@
     "descripcion": "Cargador USB para celulares",
     "idimagen": "123",
     "idcategoria": "456",
-    "descuento": "false"
+    "descuento": false
   },
   {
     "id": "2",
-    "nombre": "Audífonos Inalámbricos",
+    "nombre": "Audífonos Airpod Max",
     "fabricante": "Apple",
     "stock": "20",
     "preciodolares": "149.99",
@@ -21,7 +21,7 @@
     "descripcion": "Audífonos inalámbricos para celulares",
     "idimagen": "456",
     "idcategoria": "789",
-    "descuento": "true"
+    "descuento": true
   },
   {
     "id": "3",
@@ -33,7 +33,7 @@
     "descripcion": "Protector de pantalla para celulares",
     "idimagen": "789",
     "idcategoria": "123",
-    "descuento": "false"
+    "descuento": false
   },
   {
     "id": "4",
@@ -45,7 +45,7 @@
     "descripcion": "Batería externa para celulares",
     "idimagen": "321",
     "idcategoria": "654",
-    "descuento": "false"
+    "descuento": false
   },
   {
     "id": "5",
@@ -57,7 +57,7 @@
     "descripcion": "Cable USB-C para celulares",
     "idimagen": "654",
     "idcategoria": "987",
-    "descuento": "true"
+    "descuento": true
   },
   {
     "id": "6",
@@ -69,7 +69,7 @@
     "descripcion": "Funda protectora para celulares",
     "idimagen": "987",
     "idcategoria": "321",
-    "descuento": "false"
+    "descuento": false
   },
   {
     "id": "7",
@@ -81,7 +81,7 @@
     "descripcion": "Soporte para celular en el auto",
     "idimagen": "234",
     "idcategoria": "567",
-    "descuento": "false"
+    "descuento": false
   },
   {
     "id": "8",
@@ -93,7 +93,7 @@
     "descripcion": "Tarjeta de memoria para celulares",
     "idimagen": "567",
     "idcategoria": "890",
-    "descuento": "true"
+    "descuento": true
   },
   {
     "id": "9",
@@ -105,7 +105,7 @@
     "descripcion": "Cargador inalámbrico para celulares",
     "idimagen": "890",
     "idcategoria": "234",
-    "descuento": "false"
+    "descuento": false
   },
   {
     "id": "10",
@@ -117,6 +117,6 @@
     "descripcion": "Lente externo para celulares",
     "idimagen": "432",
     "idcategoria": "765",
-    "descuento": "false"
+    "descuento": false
   }
 ]
