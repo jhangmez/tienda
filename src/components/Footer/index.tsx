@@ -4,14 +4,15 @@ import { GithubJhan, LinkedinJhan, VercelHarkaysoft } from '@routes'
 import { Icon } from '@iconify/react'
 import localFont from 'next/font/local'
 import Link from 'next/link'
+import { Divider } from '@nextui-org/divider'
 
 const myFont = localFont({ src: './Poppins-SemiBold.ttf' })
 
 export default function FooterWithSocialMediaIcons() {
   return (
-    <footer>
-      <div className='container mx-auto py-6 px-[20px]'>
-        <hr className='my-6 border-gray-200 dark:border-gray-700 lg:my-8' />
+    <footer className='bg-light-surface dark:bg-dark-surface'>
+      <div className='container mx-auto py-6 px-[20px] '>
+        <Divider className='my-6 lg:my-8 bg-light-surfaceVariant dark:bg-dark-surfaceVariant' />
         <div className='w-full relative md:flex md:justify-between'>
           <div className='mb-6 md:mb-0'>
             <Link
@@ -88,7 +89,7 @@ export default function FooterWithSocialMediaIcons() {
             </div>
           </div>
         </div>
-        <hr className='my-6 border-gray-200 dark:border-gray-700 lg:my-8' />
+        <Divider className='my-6 lg:my-8 bg-light-surfaceVariant dark:bg-dark-surfaceVariant' />
         <div className='sm:flex sm:items-center sm:justify-between'>
           <span className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>
             © 2023{'  '}

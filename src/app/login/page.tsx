@@ -1,35 +1,47 @@
-import Form from '@components/Auth/form'
+'use client'
+
+import Form from '@components/Form'
 import Link from 'next/link'
+import { Icon } from '@iconify/react'
 
 export default function Login() {
   return (
-    <div className='flex h-screen w-screen items-center justify-center  '>
-      <div className='z-10 w-full max-w-md overflow-hidden rounded-[12px] border shadow-xl '>
-        <div className='flex flex-col items-center justify-center space-y-3 border-b bg-light-surface dark:bg-dark-surface px-4 py-6 pt-8 text-center sm:px-16'>
-          <Link href='/' className='flex items-center gap-2.5'>
-            <div className='w-6 h-[23.57px] relative'>
-              <div className='w-6 h-[5.56px] left-0 top-[9px] absolute bg-light-primary dark:bg-dark-primary' />
-              <div className='w-6 h-[5.56px] left-[3.59px] top-[20.78px] absolute origin-top-left rotate-[-60deg] bg-light-primary dark:bg-dark-primary' />
-              <div className='w-6 h-[5.56px] left-[8.41px] top-0 absolute origin-top-left rotate-[60deg] bg-light-primary dark:bg-dark-primary' />
-            </div>
-            <span className='self-center font-bold text-2xl leading-[48px] whitespace-nowrap text-light-onSurface dark:text-dark-onSurface'>
-              han
-              <span className='text-2xl font-bold leading-[48px] text-light-primary dark:text-dark-primary'>
-                pY
+    <main className='flex flex-col md:flex-row-reverse md:h-screen bg-light-surface dark:bg-dark-surface h-screen'>
+      <section className='flex items-start w-full px-4 mx-auto md:px-0 md:items-center md:w-1/3'>
+        <div className=' relative md:-left-2 bg-light-surface dark:bg-dark-surface pt-5 py-5'>
+          <Link
+            href='/'
+            className='w-fit h-14 justify-start items-center gap-[5px] inline-flex'
+          >
+            <Icon
+              icon='material-symbols:store'
+              width='28'
+              height='28'
+              className='text-light-onSurface dark:text-dark-onSurface'
+            />
+            <div>
+              <span className='text-light-onSurface dark:text-dark-onSurface text-2xl font-bold leading-[44px]'>
+                ronal
               </span>
-            </span>
+              <span className='text-light-primary dark:text-dark-primary text-2xl font-bold leading-[44px]'>
+                Tienda
+              </span>
+            </div>
           </Link>
-
-          <h3 className='text-xl font-semibold text-light-onSurface dark:text-dark-onSurface'>
+        </div>
+      </section>
+      <section className='justify-center px-4 md:px-0 md:flex md:w-2/3 md:border-r'>
+        <div className='w-full max-w-sm py-4 mx-auto my-auto min-w-min md:py-9 md:w-7/12'>
+          <h2 className='text-xl font-semibold md:text-2xl text-light-onSurface dark:text-dark-onSurface'>
             Ingresar
-          </h3>
-          <p className='text-sm text-light-onSurface dark:text-dark-onSurface'>
+          </h2>
+          <p className='text-sm text-light-onSurface dark:text-dark-onSurface pb-2'>
             Usa tu correo electrónico y contraseña para ingresar.
           </p>
-        </div>
 
-        <Form type='login' />
-      </div>
-    </div>
+          <Form type='login' />
+        </div>
+      </section>
+    </main>
   )
 }

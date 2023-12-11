@@ -1,6 +1,10 @@
 import { getToken } from 'next-auth/jwt'
 import { NextRequest, NextResponse } from 'next/server'
 
+export const config = {
+  matcher: ['/home/:path*', '/producto/:path*', '/categoria/:path*']
+}
+
 export default async function middleware(req: NextRequest) {
   // Get the pathname of the request (e.g. /, /home)
   const path = req.nextUrl.pathname
@@ -15,7 +19,7 @@ export default async function middleware(req: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET
   })
 
-  if (!session && path === '/home') {
+  if (!session && config) {
     return NextResponse.redirect(new URL('/login', req.url))
   } else if (session && (path === '/login' || path === '/register')) {
     return NextResponse.redirect(new URL('/home', req.url))
