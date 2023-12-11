@@ -7,10 +7,7 @@ export const authOptions: NextAuthOptions = {
     maxAge: 60 * 60 * 2
   },
   jwt: {
-    // The maximum age of the NextAuth.js issued JWT in seconds.
-    // Defaults to `session.maxAge`.
     maxAge: 60 * 60 * 2
-    // You can define your own encode/decode functions for signing and encryption
   },
   providers: [
     CredentialsProvider({
@@ -52,7 +49,7 @@ export const authOptions: NextAuthOptions = {
         const data = response.data
 
         if (data.errors) {
-          throw new Error('Error en la autenticación')
+          throw new Error('Error en la autenticación', data.errors)
         }
         if (data.data.login) {
           return {
