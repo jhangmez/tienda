@@ -14,7 +14,6 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\nmutation AllProductsByCompany($CompanyId: Int, $filter: ProductFilterInput) {\n  allProductsByCompany(companyId: $CompanyId, filter: $filter) {\n    id\n    name\n    createdAt\n    price {\n      unitPrice\n      currency {\n        abbreviation\n      }\n    }\n    image {\n      link\n    }\n  }\n}\n": types.AllProductsByCompanyDocument,
-    "\n  query Me {\n    me {\n      id\n      name\n      profile {\n        id\n        bio\n      }\n    }\n  }\n": types.MeDocument,
     "\nquery AllCategoriesByCompanyOnlyVisible($companyId: Int!) {\n  allCategoriesByCompanyOnlyVisible(companyId: $companyId) {\n    id\n    name\n    linkImageCategory {\n      link\n    }\n  }\n}\n": types.AllCategoriesByCompanyOnlyVisibleDocument,
 };
 
@@ -36,10 +35,6 @@ export function gql(source: string): unknown;
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\nmutation AllProductsByCompany($CompanyId: Int, $filter: ProductFilterInput) {\n  allProductsByCompany(companyId: $CompanyId, filter: $filter) {\n    id\n    name\n    createdAt\n    price {\n      unitPrice\n      currency {\n        abbreviation\n      }\n    }\n    image {\n      link\n    }\n  }\n}\n"): (typeof documents)["\nmutation AllProductsByCompany($CompanyId: Int, $filter: ProductFilterInput) {\n  allProductsByCompany(companyId: $CompanyId, filter: $filter) {\n    id\n    name\n    createdAt\n    price {\n      unitPrice\n      currency {\n        abbreviation\n      }\n    }\n    image {\n      link\n    }\n  }\n}\n"];
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(source: "\n  query Me {\n    me {\n      id\n      name\n      profile {\n        id\n        bio\n      }\n    }\n  }\n"): (typeof documents)["\n  query Me {\n    me {\n      id\n      name\n      profile {\n        id\n        bio\n      }\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
