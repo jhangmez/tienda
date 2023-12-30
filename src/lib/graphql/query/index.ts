@@ -5,11 +5,22 @@ export const Myself = gql(/* GraphQL */ `
     me {
       id
       name
-      email
       profile {
         id
         bio
       }
     }
   }
+`)
+
+export const AllCategoriesByCompanyOnlyVisible = gql(`
+query AllCategoriesByCompanyOnlyVisible($companyId: Int!) {
+  allCategoriesByCompanyOnlyVisible(companyId: $companyId) {
+    id
+    name
+    linkImageCategory {
+      link
+    }
+  }
+}
 `)

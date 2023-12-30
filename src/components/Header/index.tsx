@@ -120,11 +120,11 @@ export default function Header() {
 
         <NavbarItem isActive>
           <Link
-            href='#'
+            href='/categorias'
             aria-current='page'
             className='text-light-primary dark:text-dark-primary'
           >
-            Customers
+            Categorias
           </Link>
         </NavbarItem>
         <NavbarItem>
