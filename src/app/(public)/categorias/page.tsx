@@ -3,8 +3,8 @@ import Footer from '@components/Footer'
 import type { Metadata } from 'next'
 import Listar from '@components/(public)/Listar'
 
-const title = 'jhangmez | Skills'
-const description = 'Pagina de jhangmez'
+const title = 'ronaltienda | Categorias'
+const description = 'Categorias'
 
 export const metadata: Metadata = {
   title,
