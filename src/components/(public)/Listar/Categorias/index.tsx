@@ -19,14 +19,6 @@ export default function Categorias() {
         <Card key={category.id}>
           <CardHeader>{category.name}</CardHeader>
           <CardBody className='flex items-center'>
-            <Image
-              as={NextImage}
-              width={150}
-              height={150}
-              src={category.linkImageCategory?.link}
-              fallbackSrc='/loadingImage.webp'
-              alt='Imagen de la categoria'
-            />
             {category.linkImageCategory?.link ? (
               <Image
                 as={NextImage}
