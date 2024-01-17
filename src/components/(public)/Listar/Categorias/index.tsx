@@ -24,8 +24,28 @@ export default function Categorias() {
               width={150}
               height={150}
               src={category.linkImageCategory?.link}
+              fallbackSrc='/loadingImage.webp'
               alt='Imagen de la categoria'
             />
+            {category.linkImageCategory?.link ? (
+              <Image
+                as={NextImage}
+                width={150}
+                height={150}
+                src={category.linkImageCategory?.link}
+                fallbackSrc='/loadingImage.webp'
+                alt='Imagen de la categoria'
+              />
+            ) : (
+              <Image
+                as={NextImage}
+                width={150}
+                height={150}
+                alt='No existe Imagen'
+                className='bg-opacity-50'
+                src='/noImage.webp'
+              />
+            )}
           </CardBody>
         </Card>
       ))}
