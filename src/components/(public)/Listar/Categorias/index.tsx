@@ -3,6 +3,8 @@
 import { useQuery } from '@apollo/client'
 import { AllCategoriesByCompanyOnlyVisible } from '@lib/graphql/query'
 import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/card'
+import { Image } from '@nextui-org/image'
+import NextImage from 'next/image'
 
 export default function Categorias() {
   const { loading, error, data, refetch } = useQuery(
@@ -16,6 +18,15 @@ export default function Categorias() {
       {data?.allCategoriesByCompanyOnlyVisible.map((category) => (
         <Card key={category.id}>
           <CardHeader>{category.name}</CardHeader>
+          <CardBody className='flex items-center'>
+            <Image
+              as={NextImage}
+              width={150}
+              height={150}
+              src={category.linkImageCategory?.link}
+              alt='Imagen de la categoria'
+            />
+          </CardBody>
         </Card>
       ))}
     </section>
