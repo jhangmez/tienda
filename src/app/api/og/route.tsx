@@ -32,7 +32,7 @@ export async function GET(request: Request) {
             justifyContent: 'center',
             letterSpacing: '-.02em',
             fontWeight: 700,
-            background: '#e0e0ff'
+            background: '#FFDAD4'
           }}
         >
           <div
@@ -78,7 +78,7 @@ export async function GET(request: Request) {
               width: 'auto',
               maxWidth: 700,
               textAlign: 'center',
-              backgroundColor: '#00006e',
+              backgroundColor: '#410000',
               color: '#FFFFFF',
               lineHeight: 1.4
             }}
@@ -113,7 +113,7 @@ export async function GET(request: Request) {
     )
   } catch (e: any) {
     console.log(`${e.message}`)
-    return new Response(`Failed to generate the image`, {
+    return new Response(`Error al generar la imagen`, {
       status: 500
     })
   }
