@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import { Providers } from './providers'
@@ -8,6 +7,30 @@ import { Suspense } from 'react'
 import Loading from './loading'
 
 const myFont = localFont({ src: './LexendDeca-VariableFont_wght.ttf' })
+
+const tienda = ' | ronalTienda'
+const title = `Tienda virtual${tienda}`
+const description = 'Bienvenidos a Tienda virtual de ronal'
+const url = 'https://gamarra.vercel.app'
+const imageUrl = `${url}/api/og?title=Tienda virtual&description=${description}`
+
+export const metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: 'article',
+    url: url,
+    images: [{ url: imageUrl }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [imageUrl]
+  }
+}
 
 export default function RootLayout({
   children

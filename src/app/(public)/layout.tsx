@@ -1,7 +1,7 @@
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { Suspense } from 'react'
-import Loading from './loading'
+import Loading from '../loading'
 
 export default function PublicLayout({
   children
