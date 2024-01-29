@@ -59,7 +59,7 @@ export default function Header() {
       </NavbarContent>
 
       <NavbarContent className='hidden sm:flex gap-4' justify='center'>
-        <Dropdown>
+        {/* <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
               <Button
@@ -116,9 +116,9 @@ export default function Header() {
               +Supreme Support
             </DropdownItem>
           </DropdownMenu>
-        </Dropdown>
+        </Dropdown> */}
 
-        <NavbarItem isActive>
+        <NavbarItem>
           <Link
             href='/categorias'
             aria-current='page'
@@ -127,14 +127,14 @@ export default function Header() {
             Categorias
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        {/* <NavbarItem>
           <Link
             href='#'
             className='text-light-onSurface dark:text-dark-onSurface'
           >
             Integrations
           </Link>
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
 
       <NavbarContent justify='end'>

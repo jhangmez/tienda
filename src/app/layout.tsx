@@ -5,21 +5,9 @@ import { Providers } from './providers'
 import { Analytics } from '@vercel/analytics/react'
 import { Toaster } from 'react-hot-toast'
 import { Suspense } from 'react'
+import Loading from './loading'
 
 const myFont = localFont({ src: './LexendDeca-VariableFont_wght.ttf' })
-
-const title = 'Ronal | Tienda virtual'
-const description = 'Tienda virtual'
-
-export const metadata: Metadata = {
-  title,
-  description
-  // twitter: {
-  //   card: 'summary_large_image',
-  //   title,
-  //   description
-  // }
-}
 
 export default function RootLayout({
   children
@@ -34,7 +22,7 @@ export default function RootLayout({
         <Providers>
           <Toaster />
           <noscript>Página realizada por @jhangmez de HarkaySoft</noscript>
-          {children}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
           <Analytics />
         </Providers>
       </body>

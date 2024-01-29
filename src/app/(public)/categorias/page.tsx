@@ -12,14 +12,8 @@ export const metadata: Metadata = {
 }
 export default function Categorias() {
   return (
-    <main className='w-screen h-screen'>
-      <div className='bg-light-surface dark:bg-dark-surface '>
-        <Header />
-      </div>
+    <>
       <Listar type='categorias' />
-      <div className='bg-light-surface dark:bg-dark-surface'>
-        <Footer />
-      </div>
-    </main>
+    </>
   )
 }
