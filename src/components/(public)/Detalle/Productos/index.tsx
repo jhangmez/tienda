@@ -37,6 +37,7 @@ export default function Productos({ slug }: { slug: number }) {
           <div className='space-y-3 flex flex-col md:space-y-0 md:flex-row md:space-x-6'>
             {data?.getProductByIdAndCompanyId?.image?.map((img, index) => (
               <Image
+                key={index}
                 src={`/api/image?width=400&height=250&name=${encodeURIComponent(
                   data?.getProductByIdAndCompanyId?.name || ''
                 )}&url=${encodeURIComponent(img?.link || '')}`}
