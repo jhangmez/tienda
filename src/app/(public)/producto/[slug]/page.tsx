@@ -1,17 +1,9 @@
-import React from 'react'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Detalle from '@components/(public)/Detalle'
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default function Page({ params }: { params: { slug: number } }) {
   return (
-    <main className='w-screen h-screen '>
-      <p>sadasd</p>
-      <p>sadasd</p>
-      <p>sadasd</p>
-      <p>sadasd</p>
-      <p>sadasd</p>
-      <p>sadasd</p>
-      <p>sadasd</p>
-    </main>
+    <>
+      <Detalle type='productos' slug={params.slug} />
+    </>
   )
 }

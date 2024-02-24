@@ -34,3 +34,37 @@ name
     }
   }
 }`)
+
+export const GetProductByIdAndCompanyId = gql(`
+query GetProductByIdAndCompanyId($id: Int!, $companyId: Int!) {
+  getProductByIdAndCompanyId(id: $id, companyId: $companyId) {
+    SKU
+    UPC
+    category {
+      name
+    }
+    contentProduct {
+      content
+      id
+      typeContentProduct {
+        name
+      }
+    }
+    id
+    image {
+      link
+    }
+    name
+    price {
+      currency {
+        abbreviation
+      }
+      bulkPrice
+      bulkQuantity
+      onSale
+      unitPrice
+      visible
+    }
+  }
+}
+`)

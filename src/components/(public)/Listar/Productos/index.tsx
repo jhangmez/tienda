@@ -6,6 +6,7 @@ import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/card'
 import { Image } from '@nextui-org/image'
 import NextImage from 'next/image'
 import Loading from '../loading'
+import { Link } from '@nextui-org/link'
 export default function Productos() {
   const { loading, error, data, refetch } = useQuery(
     AllProductsByCompanyOnlyVisible,
@@ -25,7 +26,7 @@ export default function Productos() {
       ) : (
         <section className='container max-h-full flex sm:flex-col	grid sm:grid-cols-4 space-x-2 space-y-2 mx-auto py-10'>
           {data?.allProductsByCompanyOnlyVisible.map((product) => (
-            <Card key={product.id}>
+            <Card key={product.id} as={Link} href={`/producto/${product.id}`}>
               <CardHeader>{product.name}</CardHeader>
               <CardBody className='flex items-center'>
                 {product.image && product.image.length > 0 ? (
