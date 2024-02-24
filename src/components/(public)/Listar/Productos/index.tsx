@@ -30,12 +30,12 @@ export default function Productos() {
               <CardBody className='flex items-center'>
                 {product.image && product.image.length > 0 ? (
                   <Image
-                    as={NextImage}
-                    width={150}
-                    height={150}
-                    src={product.image[0]?.link}
+                    // src={product.image[0]?.link}
+                    src={`/api/image?width=400&height=300&name=${encodeURIComponent(
+                      product.name
+                    )}&url=${encodeURIComponent(product.image[0]?.link || '')}`}
                     fallbackSrc='/loadingImage.webp'
-                    alt='Imagen de la categoria'
+                    alt='Imagen del producto'
                   />
                 ) : (
                   <Image
