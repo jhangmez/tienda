@@ -34,16 +34,18 @@ export default function Productos({ slug }: { slug: number }) {
           <p className='text-light-primary dark:text-dark-primary'>
             {data?.getProductByIdAndCompanyId?.UPC}
           </p>
-          {data?.getProductByIdAndCompanyId?.image?.map((img, index) => (
-            <Image
-              key={index}
-              src={`/api/image?width=800&height=200&name=${encodeURIComponent(
-                data?.getProductByIdAndCompanyId?.name ?? 'No imagen'
-              )}&url=${encodeURIComponent(img?.link ?? 'No texto')}`}
-              fallbackSrc='/loadingImage.webp'
-              alt={`Imagen del producto ${index + 1}`}
-            />
-          ))}
+          <div className='space-y-3 flex flex-col md:space-y-0 md:flex-row md:space-x-6'>
+            {data?.getProductByIdAndCompanyId?.image?.map((img, index) => (
+              <Image
+                src={`/api/image?width=400&height=250&name=${encodeURIComponent(
+                  data?.getProductByIdAndCompanyId?.name || ''
+                )}&url=${encodeURIComponent(img?.link || '')}`}
+                fallbackSrc='/loadingImage.webp'
+                alt={`Imagen del producto ${index + 1}`}
+                className='w-full h-auto'
+              />
+            ))}
+          </div>
         </section>
       )}
     </>
