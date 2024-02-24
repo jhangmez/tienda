@@ -13,8 +13,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\nmutation AllProductsByCompany($CompanyId: Int, $filter: ProductFilterInput) {\n  allProductsByCompany(companyId: $CompanyId, filter: $filter) {\n    id\n    name\n    createdAt\n    price {\n      unitPrice\n      currency {\n        abbreviation\n      }\n    }\n    image {\n      link\n    }\n  }\n}\n": types.AllProductsByCompanyDocument,
     "\nquery AllCategoriesByCompanyOnlyVisible($companyId: Int!) {\n  allCategoriesByCompanyOnlyVisible(companyId: $companyId) {\n    id\n    name\n    linkImageCategory {\n      link\n    }\n  }\n}\n": types.AllCategoriesByCompanyOnlyVisibleDocument,
+    "\nquery AllProductsByCompanyOnlyVisible($companyId: Int!) {\n  allProductsByCompanyOnlyVisible(companyId: $companyId) {\nname\n    SKU\n    UPC\n    id\n    image {\n      link\n      id\n    }\n    price {\n      unitPrice\n      onSale\n      visible\n      currency {\n        abbreviation\n      }\n      id\n    }\n  }\n}": types.AllProductsByCompanyOnlyVisibleDocument,
 };
 
 /**
@@ -34,11 +34,11 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\nmutation AllProductsByCompany($CompanyId: Int, $filter: ProductFilterInput) {\n  allProductsByCompany(companyId: $CompanyId, filter: $filter) {\n    id\n    name\n    createdAt\n    price {\n      unitPrice\n      currency {\n        abbreviation\n      }\n    }\n    image {\n      link\n    }\n  }\n}\n"): (typeof documents)["\nmutation AllProductsByCompany($CompanyId: Int, $filter: ProductFilterInput) {\n  allProductsByCompany(companyId: $CompanyId, filter: $filter) {\n    id\n    name\n    createdAt\n    price {\n      unitPrice\n      currency {\n        abbreviation\n      }\n    }\n    image {\n      link\n    }\n  }\n}\n"];
+export function gql(source: "\nquery AllCategoriesByCompanyOnlyVisible($companyId: Int!) {\n  allCategoriesByCompanyOnlyVisible(companyId: $companyId) {\n    id\n    name\n    linkImageCategory {\n      link\n    }\n  }\n}\n"): (typeof documents)["\nquery AllCategoriesByCompanyOnlyVisible($companyId: Int!) {\n  allCategoriesByCompanyOnlyVisible(companyId: $companyId) {\n    id\n    name\n    linkImageCategory {\n      link\n    }\n  }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\nquery AllCategoriesByCompanyOnlyVisible($companyId: Int!) {\n  allCategoriesByCompanyOnlyVisible(companyId: $companyId) {\n    id\n    name\n    linkImageCategory {\n      link\n    }\n  }\n}\n"): (typeof documents)["\nquery AllCategoriesByCompanyOnlyVisible($companyId: Int!) {\n  allCategoriesByCompanyOnlyVisible(companyId: $companyId) {\n    id\n    name\n    linkImageCategory {\n      link\n    }\n  }\n}\n"];
+export function gql(source: "\nquery AllProductsByCompanyOnlyVisible($companyId: Int!) {\n  allProductsByCompanyOnlyVisible(companyId: $companyId) {\nname\n    SKU\n    UPC\n    id\n    image {\n      link\n      id\n    }\n    price {\n      unitPrice\n      onSale\n      visible\n      currency {\n        abbreviation\n      }\n      id\n    }\n  }\n}"): (typeof documents)["\nquery AllProductsByCompanyOnlyVisible($companyId: Int!) {\n  allProductsByCompanyOnlyVisible(companyId: $companyId) {\nname\n    SKU\n    UPC\n    id\n    image {\n      link\n      id\n    }\n    price {\n      unitPrice\n      onSale\n      visible\n      currency {\n        abbreviation\n      }\n      id\n    }\n  }\n}"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

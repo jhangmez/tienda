@@ -8,11 +8,12 @@ import Loading from './loading'
 
 const myFont = localFont({ src: './LexendDeca-VariableFont_wght.ttf' })
 
-const tienda = ' | ronalTienda'
-const title = `Tienda virtual${tienda}`
+const shortTitle = 'Tienda virtual'
 const description = 'Bienvenidos a Tienda virtual de ronal'
+const tienda = ' | ronalTienda'
+const title = `${shortTitle}${tienda}`
 const url = 'https://gamarra.vercel.app'
-const imageUrl = `${url}/api/og?title=Tienda virtual&description=${description}`
+const imageUrl = `${url}/api/og?title=${shortTitle}&description=${description}`
 
 export const metadata = {
   title,
@@ -21,7 +22,7 @@ export const metadata = {
     title,
     description,
     type: 'article',
-    url: url,
+    url: 'https://jhangmez.xyz/',
     images: [{ url: imageUrl }]
   },
   twitter: {
@@ -38,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang='es'>
       <body
         className={`${myFont.className} selection:bg-light-primary selection:text-light-onPrimary dark:selection:bg-dark-primary dark:selection:text-dark-onPrimary`}
       >

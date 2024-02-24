@@ -13,7 +13,7 @@ export default function Loading() {
       </p>
       <Spinner color='primary' />
       <p className='mt-4 text-light-onBackground dark:text-dark-onBackground'>
-        Cargando sección...
+        Cargando ...
       </p>
     </section>
   )

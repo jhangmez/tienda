@@ -11,3 +11,26 @@ query AllCategoriesByCompanyOnlyVisible($companyId: Int!) {
   }
 }
 `)
+
+export const AllProductsByCompanyOnlyVisible = gql(`
+query AllProductsByCompanyOnlyVisible($companyId: Int!) {
+  allProductsByCompanyOnlyVisible(companyId: $companyId) {
+name
+    SKU
+    UPC
+    id
+    image {
+      link
+      id
+    }
+    price {
+      unitPrice
+      onSale
+      visible
+      currency {
+        abbreviation
+      }
+      id
+    }
+  }
+}`)

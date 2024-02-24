@@ -18,6 +18,18 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
 };
 
+export type Asesor = {
+  __typename?: 'Asesor';
+  company?: Maybe<Company>;
+  companyId: Scalars['Int']['output'];
+  correo: Scalars['String']['output'];
+  descripcion: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  link: Scalars['String']['output'];
+  nombre: Scalars['String']['output'];
+  telefono: Scalars['String']['output'];
+};
+
 export type AuthPayload = {
   __typename?: 'AuthPayload';
   token?: Maybe<Scalars['String']['output']>;
@@ -112,8 +124,6 @@ export type Message = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  addProfileForUser?: Maybe<Profile>;
-  allProductsByCompany: Array<Product>;
   changePassword?: Maybe<Message>;
   createAdmin?: Maybe<AuthPayload>;
   createCategory?: Maybe<Category>;
@@ -123,16 +133,14 @@ export type Mutation = {
   createContentOtros?: Maybe<ContentProduct>;
   createContentVideos?: Maybe<ContentProduct>;
   createListWithProducts?: Maybe<List>;
-  createPrice?: Maybe<Price>;
-  createProduct?: Maybe<Product>;
-  createStock?: Maybe<Stock>;
+  createOrUpdatePrice?: Maybe<Price>;
+  createOrUpdateProduct?: Maybe<Product>;
   createSubcategoryWithProducts?: Maybe<Category>;
   createWorker?: Maybe<Message>;
-  deletePost?: Maybe<Post>;
-  incrementPostViewCount?: Maybe<Post>;
+  deleteCategory?: Maybe<Category>;
+  deleteProduct?: Maybe<Product>;
   login?: Maybe<AuthPayload>;
   rootchangePassword?: Maybe<Message>;
-  togglePublishPost?: Maybe<Post>;
   updateCategory?: Maybe<Category>;
   updateContentCaracteristicas?: Maybe<ContentProduct>;
   updateContentDescripcion?: Maybe<ContentProduct>;
@@ -140,22 +148,8 @@ export type Mutation = {
   updateContentOtros?: Maybe<ContentProduct>;
   updateContentVideos?: Maybe<ContentProduct>;
   updateListWithProducts?: Maybe<List>;
-  updatePrice?: Maybe<Price>;
-  updateProduct?: Maybe<Product>;
-  updateStock?: Maybe<Stock>;
   updateSubcategoryWithProducts?: Maybe<Category>;
-};
-
-
-export type MutationAddProfileForUserArgs = {
-  bio?: InputMaybe<Scalars['String']['input']>;
-  userUniqueInput: UserUniqueInput;
-};
-
-
-export type MutationAllProductsByCompanyArgs = {
-  companyId?: InputMaybe<Scalars['Int']['input']>;
-  filter?: InputMaybe<ProductFilterInput>;
+  upsertAsesor?: Maybe<Asesor>;
 };
 
 
@@ -175,7 +169,9 @@ export type MutationCreateAdminArgs = {
 
 
 export type MutationCreateCategoryArgs = {
+  link: Scalars['String']['input'];
   name: Scalars['String']['input'];
+  namefile?: InputMaybe<Scalars['String']['input']>;
   visible?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -222,28 +218,30 @@ export type MutationCreateListWithProductsArgs = {
 };
 
 
-export type MutationCreatePriceArgs = {
+export type MutationCreateOrUpdatePriceArgs = {
   bulkPrice?: InputMaybe<Scalars['Float']['input']>;
   bulkQuantity?: InputMaybe<Scalars['Int']['input']>;
   currencyId: Scalars['Int']['input'];
+  id?: InputMaybe<Scalars['Int']['input']>;
   onSale?: InputMaybe<Scalars['Boolean']['input']>;
-  productId: Scalars['Int']['input'];
+  productId?: InputMaybe<Scalars['Int']['input']>;
   unitPrice: Scalars['Float']['input'];
   visible?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
-export type MutationCreateProductArgs = {
+export type MutationCreateOrUpdateProductArgs = {
   SKU?: InputMaybe<Scalars['String']['input']>;
   UPC?: InputMaybe<Scalars['String']['input']>;
+  bulkPrice?: InputMaybe<Scalars['Float']['input']>;
+  bulkQuantity?: InputMaybe<Scalars['Int']['input']>;
+  currencyId?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
   name: Scalars['String']['input'];
+  onSale?: InputMaybe<Scalars['Boolean']['input']>;
+  unitPrice?: InputMaybe<Scalars['Float']['input']>;
   visible?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type MutationCreateStockArgs = {
-  productId: Scalars['Int']['input'];
-  quantity: Scalars['Int']['input'];
+  visiblePrice?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -262,12 +260,12 @@ export type MutationCreateWorkerArgs = {
 };
 
 
-export type MutationDeletePostArgs = {
+export type MutationDeleteCategoryArgs = {
   id: Scalars['Int']['input'];
 };
 
 
-export type MutationIncrementPostViewCountArgs = {
+export type MutationDeleteProductArgs = {
   id: Scalars['Int']['input'];
 };
 
@@ -284,15 +282,12 @@ export type MutationRootchangePasswordArgs = {
 };
 
 
-export type MutationTogglePublishPostArgs = {
-  id: Scalars['Int']['input'];
-};
-
-
 export type MutationUpdateCategoryArgs = {
   id: Scalars['Int']['input'];
-  name?: InputMaybe<Scalars['String']['input']>;
-  visible?: InputMaybe<Scalars['Boolean']['input']>;
+  link: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  namefile?: InputMaybe<Scalars['String']['input']>;
+  visible: Scalars['Boolean']['input'];
 };
 
 
@@ -344,39 +339,21 @@ export type MutationUpdateListWithProductsArgs = {
 };
 
 
-export type MutationUpdatePriceArgs = {
-  bulkPrice?: InputMaybe<Scalars['Float']['input']>;
-  bulkQuantity?: InputMaybe<Scalars['Int']['input']>;
-  currencyId?: InputMaybe<Scalars['Int']['input']>;
-  id: Scalars['Int']['input'];
-  onSale?: InputMaybe<Scalars['Boolean']['input']>;
-  productId?: InputMaybe<Scalars['Int']['input']>;
-  unitPrice?: InputMaybe<Scalars['Float']['input']>;
-  visible?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type MutationUpdateProductArgs = {
-  SKU?: InputMaybe<Scalars['String']['input']>;
-  UPC?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-  name?: InputMaybe<Scalars['String']['input']>;
-  visible?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type MutationUpdateStockArgs = {
-  id: Scalars['Int']['input'];
-  productId?: InputMaybe<Scalars['Int']['input']>;
-  quantity?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
 export type MutationUpdateSubcategoryWithProductsArgs = {
   id: Scalars['Int']['input'];
   name?: InputMaybe<Scalars['String']['input']>;
   productIds?: InputMaybe<Array<Scalars['Int']['input']>>;
   visible?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type MutationUpsertAsesorArgs = {
+  correo: Scalars['String']['input'];
+  descripcion: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  link: Scalars['String']['input'];
+  nombre: Scalars['String']['input'];
+  telefono: Scalars['String']['input'];
 };
 
 export type NewContentInput = {
@@ -395,17 +372,6 @@ export type NewPriceInput = {
 
 export type NewStockInput = {
   quantity: Scalars['Int']['input'];
-};
-
-export type Post = {
-  __typename?: 'Post';
-  content?: Maybe<Scalars['String']['output']>;
-  createdAt: Scalars['DateTime']['output'];
-  id: Scalars['Int']['output'];
-  published: Scalars['Boolean']['output'];
-  title: Scalars['String']['output'];
-  updatedAt: Scalars['DateTime']['output'];
-  viewCount: Scalars['Int']['output'];
 };
 
 export type PostCreateInput = {
@@ -436,13 +402,13 @@ export type Product = {
   category?: Maybe<Array<Maybe<Category>>>;
   company?: Maybe<Company>;
   contentProduct?: Maybe<Array<Maybe<ContentProduct>>>;
-  createdAt: Scalars['DateTime']['output'];
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
   id: Scalars['Int']['output'];
   image?: Maybe<Array<Maybe<LinkImageProduct>>>;
   list?: Maybe<Array<Maybe<List>>>;
   name: Scalars['String']['output'];
   price?: Maybe<Array<Maybe<Price>>>;
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
   visible?: Maybe<Scalars['Boolean']['output']>;
 };
 
@@ -465,24 +431,31 @@ export type Query = {
   allCategories: Array<Category>;
   allCategoriesByCompany: Array<Category>;
   allCategoriesByCompanyOnlyVisible: Array<Category>;
+  allCurrency?: Maybe<Array<Maybe<Currency>>>;
   allImagesProducts: Array<LinkImageProduct>;
   allLists: Array<List>;
   allListsByCompany: Array<List>;
   allPrices: Array<Price>;
   allProducts: Array<Product>;
+  allProductsByCompany: Array<Product>;
+  allProductsByCompanyOnlyVisible: Array<Product>;
   allSubcategories: Array<Category>;
+  allSubcategoriesByCategory: Array<Category>;
   allSubcategoriesByCompany: Array<Category>;
   allTypeUser: Array<TypeUser>;
   allUsers: Array<User>;
   allWorkers: Array<User>;
-  feed: Array<Post>;
+  asesoresByCompany: Array<Asesor>;
   getAllSubcategoriesbyCategoryCompanyId?: Maybe<Category>;
+  getCategory?: Maybe<Category>;
   getCompanyId?: Maybe<CompanyId>;
   getCompanyName?: Maybe<CompanyName>;
+  getCurrency?: Maybe<Currency>;
+  getPrice: Price;
+  getProduct?: Maybe<Product>;
   getSuscriptionCompany?: Maybe<SuscriptionbyCompany>;
   listByCompany?: Maybe<List>;
   me?: Maybe<User>;
-  postById?: Maybe<Post>;
   productById?: Maybe<Product>;
   productByIdAndCompanyId?: Maybe<Product>;
   productsByList: Array<Product>;
@@ -494,7 +467,7 @@ export type Query = {
 
 
 export type QueryAllCategoriesByCompanyArgs = {
-  companyId: Scalars['Int']['input'];
+  companyId?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -508,6 +481,21 @@ export type QueryAllListsByCompanyArgs = {
 };
 
 
+export type QueryAllProductsByCompanyArgs = {
+  companyId?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryAllProductsByCompanyOnlyVisibleArgs = {
+  companyId: Scalars['Int']['input'];
+};
+
+
+export type QueryAllSubcategoriesByCategoryArgs = {
+  categoryId: Scalars['Int']['input'];
+};
+
+
 export type QueryAllSubcategoriesByCompanyArgs = {
   companyId: Scalars['Int']['input'];
 };
@@ -518,11 +506,8 @@ export type QueryAllWorkersArgs = {
 };
 
 
-export type QueryFeedArgs = {
-  orderBy?: InputMaybe<PostOrderByUpdatedAtInput>;
-  searchString?: InputMaybe<Scalars['String']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  take?: InputMaybe<Scalars['Int']['input']>;
+export type QueryAsesoresByCompanyArgs = {
+  companyId?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -532,8 +517,28 @@ export type QueryGetAllSubcategoriesbyCategoryCompanyIdArgs = {
 };
 
 
+export type QueryGetCategoryArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
 export type QueryGetCompanyNameArgs = {
   companyId: Scalars['Int']['input'];
+};
+
+
+export type QueryGetCurrencyArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+export type QueryGetPriceArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+export type QueryGetProductArgs = {
+  id: Scalars['Int']['input'];
 };
 
 
@@ -545,11 +550,6 @@ export type QueryGetSuscriptionCompanyArgs = {
 export type QueryListByCompanyArgs = {
   companyId: Scalars['Int']['input'];
   id: Scalars['Int']['input'];
-};
-
-
-export type QueryPostByIdArgs = {
-  id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -657,14 +657,6 @@ export type CompanyId = {
   companyId: Scalars['Int']['output'];
 };
 
-export type AllProductsByCompanyMutationVariables = Exact<{
-  CompanyId?: InputMaybe<Scalars['Int']['input']>;
-  filter?: InputMaybe<ProductFilterInput>;
-}>;
-
-
-export type AllProductsByCompanyMutation = { __typename?: 'Mutation', allProductsByCompany: Array<{ __typename?: 'Product', id: number, name: string, createdAt: any, price?: Array<{ __typename?: 'Price', unitPrice: number, currency?: { __typename?: 'Currency', abbreviation: string } | null } | null> | null, image?: Array<{ __typename?: 'LinkImageProduct', link: string } | null> | null }> };
-
 export type AllCategoriesByCompanyOnlyVisibleQueryVariables = Exact<{
   companyId: Scalars['Int']['input'];
 }>;
@@ -672,6 +664,13 @@ export type AllCategoriesByCompanyOnlyVisibleQueryVariables = Exact<{
 
 export type AllCategoriesByCompanyOnlyVisibleQuery = { __typename?: 'Query', allCategoriesByCompanyOnlyVisible: Array<{ __typename?: 'Category', id: number, name: string, linkImageCategory?: { __typename?: 'LinkImageCategory', link: string } | null }> };
 
+export type AllProductsByCompanyOnlyVisibleQueryVariables = Exact<{
+  companyId: Scalars['Int']['input'];
+}>;
 
-export const AllProductsByCompanyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AllProductsByCompany"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"CompanyId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filter"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ProductFilterInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProductsByCompany"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"companyId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"CompanyId"}}},{"kind":"Argument","name":{"kind":"Name","value":"filter"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"unitPrice"}},{"kind":"Field","name":{"kind":"Name","value":"currency"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"abbreviation"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]}}]}}]} as unknown as DocumentNode<AllProductsByCompanyMutation, AllProductsByCompanyMutationVariables>;
+
+export type AllProductsByCompanyOnlyVisibleQuery = { __typename?: 'Query', allProductsByCompanyOnlyVisible: Array<{ __typename?: 'Product', name: string, SKU?: string | null, UPC?: string | null, id: number, image?: Array<{ __typename?: 'LinkImageProduct', link: string, id: number } | null> | null, price?: Array<{ __typename?: 'Price', unitPrice: number, onSale?: boolean | null, visible?: boolean | null, id: number, currency?: { __typename?: 'Currency', abbreviation: string } | null } | null> | null }> };
+
+
 export const AllCategoriesByCompanyOnlyVisibleDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AllCategoriesByCompanyOnlyVisible"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"companyId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allCategoriesByCompanyOnlyVisible"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"companyId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"companyId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"linkImageCategory"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]}}]}}]} as unknown as DocumentNode<AllCategoriesByCompanyOnlyVisibleQuery, AllCategoriesByCompanyOnlyVisibleQueryVariables>;
+export const AllProductsByCompanyOnlyVisibleDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AllProductsByCompanyOnlyVisible"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"companyId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProductsByCompanyOnlyVisible"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"companyId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"companyId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"SKU"}},{"kind":"Field","name":{"kind":"Name","value":"UPC"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"link"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"unitPrice"}},{"kind":"Field","name":{"kind":"Name","value":"onSale"}},{"kind":"Field","name":{"kind":"Name","value":"visible"}},{"kind":"Field","name":{"kind":"Name","value":"currency"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"abbreviation"}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<AllProductsByCompanyOnlyVisibleQuery, AllProductsByCompanyOnlyVisibleQueryVariables>;
