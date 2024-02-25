@@ -47,6 +47,25 @@ export default function Productos({ slug }: { slug: number }) {
               />
             ))}
           </div>
+          <div className='space-y-3 flex flex-col md:space-y-0 md:flex-row md:space-x-6'>
+            {data?.getProductByIdAndCompanyId?.price
+              ?.filter((price) => price?.visible && price?.unitPrice > 0)
+              .map((price, index) => (
+                <div key={index}>
+                  <p>
+                    Precio: {price?.unitPrice} {price?.currency?.abbreviation}
+                  </p>
+                  {price?.onSale && <p>En venta</p>}
+                  {price?.bulkPrice != null && price?.bulkPrice > 0 && (
+                    <p>
+                      Precio por mayor: {price?.bulkPrice}{' '}
+                      {price?.currency?.abbreviation} por{' '}
+                      {price?.bulkQuantity || 0} unidades
+                    </p>
+                  )}
+                </div>
+              ))}
+          </div>
         </section>
       )}
     </>

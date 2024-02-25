@@ -7,6 +7,7 @@ import { Image } from '@nextui-org/image'
 import NextImage from 'next/image'
 import Loading from '../loading'
 import { Link } from '@nextui-org/link'
+import { Divider } from '@nextui-org/divider'
 export default function Productos() {
   const { loading, error, data, refetch } = useQuery(
     AllProductsByCompanyOnlyVisible,
@@ -48,6 +49,27 @@ export default function Productos() {
                     src='/noImage.webp'
                   />
                 )}
+                <div className=''>
+                  {product.price
+                    ?.filter((price) => price?.visible && price?.unitPrice > 0)
+                    .map((price, index) => (
+                      <div key={index}>
+                        <p>
+                          Precio: ({price?.currency?.name}){' '}
+                          {price?.currency?.abbreviation}
+                          {price?.unitPrice}
+                        </p>
+                        <Divider />
+                        {price?.bulkPrice != null && price?.bulkPrice > 0 && (
+                          <p>
+                            Precio por mayor: {price?.currency?.abbreviation}{' '}
+                            {price?.bulkPrice} por {price?.bulkQuantity || 0}{' '}
+                            unidades
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                </div>
               </CardBody>
             </Card>
           ))}

@@ -29,8 +29,11 @@ name
       visible
       currency {
         abbreviation
+        name
       }
       id
+      bulkQuantity
+      bulkPrice
     }
   }
 }`)
