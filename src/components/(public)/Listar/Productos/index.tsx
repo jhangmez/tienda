@@ -25,7 +25,7 @@ export default function Productos() {
           Error {error.message}
         </p>
       ) : (
-        <section className='container max-h-full flex sm:flex-col	grid sm:grid-cols-4 space-x-2 space-y-2 mx-auto py-10'>
+        <section className='container max-w-full flex gap-4 flex-wrap'>
           {data?.allProductsByCompanyOnlyVisible.map((product) => (
             <Card key={product.id} as={Link} href={`/producto/${product.id}`}>
               <CardHeader>{product.name}</CardHeader>
@@ -52,10 +52,12 @@ export default function Productos() {
                 <div className=''>
                   {product.price
                     ?.filter((price) => price?.visible && price?.unitPrice > 0)
+
                     .map((price, index) => (
                       <div key={index}>
+                        Precio:
                         <p>
-                          Precio: ({price?.currency?.name}){' '}
+                          ({price?.currency?.name}){' '}
                           {price?.currency?.abbreviation}
                           {price?.unitPrice}
                         </p>
